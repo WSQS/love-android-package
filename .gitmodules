@@ -6,3 +6,6 @@
 	path = app/src/main/cpp/megasource
 	url = https://github.com/love2d/megasource
 	branch = main
+[submodule "app/src/embed/assets"]
+	path = app/src/embed/assets
+	url = git@github.com:WSQS/love2d-playground.git
