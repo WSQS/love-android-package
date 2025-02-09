@@ -27,8 +27,15 @@ jobs:
     - name: Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: outputs
-        path: app/build/outputs/*
+        name: app-embed-noRecord-release-unsigned.apk
+        path: app/build/outputs/apk/embedNoRecord/release/app-embed-noRecord-release-unsigned.apk
+    - name: Sign Apk
+      run: apksigner sign --ks ./my-release-key.keystore --out ./signed.apk app/build/outputs/apk/embedNoRecord/release/app-embed-noRecord-release-unsigned.apk
+    - name: Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: signed.apk
+        path: ./signed.apk
     - name: Artifact (Debug symbols)
       uses: actions/upload-artifact@v4
       with:
